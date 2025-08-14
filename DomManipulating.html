@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DOM Makeover Challenge</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      background-color: rgb(30, 130, 177);
+      padding: 40px 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    button {
+      margin: 5px;
+      padding: 8px 12px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container" id="box">
+  <h1 id="main-heading">DOM Makeover Challenge</h1>
+  <p id="main-paragraph">This is a simple webpage that needs some style!</p>
+  <button id="changeTextBtn">Change Text</button>
+  <button id="changeStyleBtn">Change Background</button>
+</div>
+
+<script>
+  const heading = document.getElementById('main-heading');
+  const paragraph = document.getElementById('main-paragraph');
+  const textBtn = document.getElementById('changeTextBtn');
+  const styleBtn = document.getElementById('changeStyleBtn');
+  const box = document.getElementById('box');
+
+  
+  const headingTexts = [
+    "Coding is fun!",
+    "DOM Makeover Challenge"
+  ];
+
+  const paragraphTexts = [
+    "JavaScript can do everything!",
+    "This is a simple webpage that needs some style!",
+    
+  ];
+
+  let textIndex = 0;
+
+ 
+  textBtn.addEventListener('click', function() {
+    heading.textContent = headingTexts[textIndex];
+    paragraph.textContent = paragraphTexts[textIndex];
+    textIndex = (textIndex + 1) % headingTexts.length;
+  });
+
+  
+  const boxColors = ["#009999", "#00A586A", "#008080", "#00A699", "#7FFFD4"];
+  let colorIndex = 0;
+
+  
+  styleBtn.addEventListener('click', function() {
+    box.style.backgroundColor = boxColors[colorIndex];
+    colorIndex = (colorIndex + 1) % boxColors.length;
+  });
+</script>
+
+</body>
+</html>
